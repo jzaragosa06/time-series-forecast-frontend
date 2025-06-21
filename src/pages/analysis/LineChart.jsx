@@ -58,17 +58,19 @@ const LineGraph = ({ series }) => {
                 <Line
                     type="monotone"
                     dataKey="value"
-                    stroke="#4f46e5"
-                    strokeWidth={1.5} // thinner line
-                    dot={{ r: 2, stroke: '#4f46e5', strokeWidth: 1, fill: '#fff' }} // smaller dot
+                    stroke="#1e40af" // Tailwind's bg-blue-800
+                    strokeWidth={1.5}
+                    dot={{ r: 2, stroke: '#1e40af', strokeWidth: 1, fill: '#fff' }}
                     activeDot={{ r: 4 }}
                 />
+
                 {/* <Brush
                     dataKey="name"
                     height={20}
-                    stroke="#4f46e5"
+                    stroke="#1e40af"
                     travellerWidth={10}
                 /> */}
+
             </LineChart>
         </ResponsiveContainer>
     );
