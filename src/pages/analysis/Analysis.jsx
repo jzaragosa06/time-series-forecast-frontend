@@ -44,7 +44,6 @@
 //                 </div>
 //                 {/* Series Preprocessing */}
 //                 <div>
-//                     <h1>Preprocessing</h1>
 //                     <PreprocessingOption
 //                         formData={formData}
 //                         setFormData={setFormData}
@@ -63,7 +62,8 @@
 //                 </div>
 
 //                 {/* Forecast result */}
-//                 <div>
+//                 {
+//                     metric &&
 //                     <Result
 //                         metric={metric}
 //                         setMetric={setMetric}
@@ -72,9 +72,10 @@
 //                         outSampleForecast={outSampleForecast}
 //                         setOutSampleForecast={setOutSampleForecast}
 //                     />
-//                 </div>
 
-    
+//                 }
+
+
 
 //             </div>
 //         </>
@@ -108,12 +109,12 @@ const Analysis = () => {
     return (
         <>
             <Header />
-            <main className="min-h-screen bg-gray-50 py-8 px-4 md:px-12">
+            <div className="min-h-screen bg-gray-50 py-8 px-4">
                 <div className="max-w-6xl mx-auto flex flex-col gap-8">
                     {/* Series Input & Chart */}
-                    <section className="flex flex-col md:flex-row gap-8">
-                        <div className="md:w-1/3 w-full bg-white rounded-xl shadow border p-4 flex flex-col">
-                            <h2 className="text-lg font-semibold mb-4 text-gray-800">Series Input</h2>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div className="bg-white rounded-xl shadow-sm p-4 border col-span-1">
+                            <h2 className="font-semibold text-lg mb-3 text-gray-800">Series Input</h2>
                             <SeriesInput
                                 series={series}
                                 addNewRow={addNewRow}
@@ -122,39 +123,38 @@ const Analysis = () => {
                                 handleBulkPaste={handleBulkPaste}
                             />
                         </div>
-                        <div className="flex-1 bg-white rounded-xl shadow border p-4 flex flex-col">
-                            <h2 className="text-lg font-semibold mb-4 text-gray-800">Raw Series Chart</h2>
+                        <div className="bg-white rounded-xl shadow-sm p-4 border col-span-2 flex flex-col">
+                            <h2 className="font-semibold text-lg mb-3 text-gray-800">Series Chart</h2>
                             <LineGraph series={series} />
                         </div>
-                    </section>
-
+                    </div>
                     {/* Preprocessing */}
-                    <section className="bg-white rounded-xl shadow border p-4 flex flex-col gap-4">
-                        <h2 className="text-lg font-semibold text-gray-800">Preprocessing</h2>
-                        <PreprocessingOption
-                            formData={formData}
-                            setFormData={setFormData}
-                        />
-                        {coundValidValues(preprocessedSeries) &&
-                            <div>
-                                <h3 className="text-md font-medium text-gray-700 mb-2">Preprocessed Series</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="bg-white rounded-xl shadow-sm p-4 border">
+                            <PreprocessingOption
+                                formData={formData}
+                                setFormData={setFormData}
+                            />
+                        </div>
+                        <div className="bg-white rounded-xl shadow-sm p-4 border">
+                            <h2 className="font-semibold text-lg mb-3 text-gray-800">Preprocessed Series</h2>
+                            {coundValidValues(preprocessedSeries) ? (
                                 <LineGraph series={preprocessedSeries} />
-                            </div>
-                        }
-                    </section>
-
-                    {/* Forecast option */}
-                    <section className="bg-white rounded-xl shadow border p-4 flex flex-col gap-4">
-                        <h2 className="text-lg font-semibold text-gray-800">Forecast Options</h2>
+                            ) : (
+                                <div className="text-gray-400 text-sm">No preprocessed data to display.</div>
+                            )}
+                        </div>
+                    </div>
+                    {/* Forecast option*/}
+                    <div className="bg-white rounded-xl shadow-sm p-4 border">
                         <ForecastOption
                             formData={formData}
                             setFormData={setFormData}
                             forecast={forecast}
                         />
-                    </section>
-
+                    </div>
                     {/* Forecast result */}
-                    <section className="bg-white rounded-xl shadow border p-4 flex flex-col gap-4">
+                    {metric && (
                         <Result
                             metric={metric}
                             setMetric={setMetric}
@@ -163,9 +163,9 @@ const Analysis = () => {
                             outSampleForecast={outSampleForecast}
                             setOutSampleForecast={setOutSampleForecast}
                         />
-                    </section>
+                    )}
                 </div>
-            </main>
+            </div>
         </>
     );
 }

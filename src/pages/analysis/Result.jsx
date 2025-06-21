@@ -14,7 +14,7 @@
 //     return (
 //         <div>
 //             {/* Results (graphs, metrics, tables, and description) */}
-            
+//             <h1>Forecast Result</h1>
 //             {inSampleForecastTest &&
 //                 <div>
 //                     <p>Model performance</p>
@@ -22,10 +22,12 @@
 //                 </div>
 //             }
 
-//             <div>
-//                 <p>forecast</p>
+//             <div className="flex">
+//                 <div>
+//                     <p>forecast</p>
 //                 {outSampleForecast && <LineGraph series={outSampleForecast} />}
 
+//                 </div>
 //                 {/* AI Explanation */}
 //                 <AiComponent />
 //             </div>
@@ -36,8 +38,6 @@
 
 // export default Result; 
 
-import { useState } from "react";
-import { LineChart } from "recharts";
 import LineGraph from "./LineChart";
 import AiComponent from "./Ai";
 
@@ -50,24 +50,28 @@ const Result = ({
     setOutSampleForecast,
 }) => {
     return (
-        <div className="flex flex-col gap-8">
-            {/* Results (graphs, metrics, tables, and description) */}
-            {inSampleForecastTest &&
-                <div>
-                    <h3 className="text-md font-medium text-gray-700 mb-2">Model Performance</h3>
+        <div className="bg-white rounded-xl shadow-sm p-6 border mt-4">
+            <h1 className="font-semibold text-xl mb-4 text-gray-800">Forecast Result</h1>
+            {inSampleForecastTest && (
+                <div className="mb-6">
+                    <p className="text-gray-600 mb-2">Model Performance</p>
                     <LineGraph series={inSampleForecastTest} />
                 </div>
-            }
-
-            <div>
-                <h3 className="text-md font-medium text-gray-700 mb-2">Forecast</h3>
-                {outSampleForecast && <LineGraph series={outSampleForecast} />}
-                {/* AI Explanation */}
-                <div className="mt-4">
+            )}
+            <div className="flex flex-col md:flex-row gap-6">
+                <div className="flex-1">
+                    <p className="text-gray-600 mb-2">Forecast</p>
+                    {outSampleForecast ? (
+                        <LineGraph series={outSampleForecast} />
+                    ) : (
+                        <div className="text-gray-400 text-sm">No forecast data to display.</div>
+                    )}
+                </div>
+                <div className="md:w-1/3">
                     <AiComponent
-                        metric={metric}
                         inSampleForecastTest={inSampleForecastTest}
                         outSampleForecast={outSampleForecast}
+                        metric={metric}
                     />
                 </div>
             </div>

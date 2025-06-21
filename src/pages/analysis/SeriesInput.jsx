@@ -48,7 +48,6 @@
 // };
 
 // export default SeriesInput;
-
 import { validateSeriesValue } from "../../utils/validateSeries";
 
 const SeriesInput = ({ series, addNewRow, updateValue, deleteRow, handleBulkPaste }) => {
@@ -61,8 +60,8 @@ const SeriesInput = ({ series, addNewRow, updateValue, deleteRow, handleBulkPast
         <div className="flex flex-col w-full gap-2 text-sm">
             <div className="flex flex-col gap-1 max-h-72 overflow-y-auto pr-1">
                 {series.map((s) => (
-                    <div key={s.index} className="flex items-center gap-5">
-                        <span className="w-5 text-right text-gray-500">{s.index}</span>
+                    <div key={s.index} className="flex items-center gap-3">
+                        <span className="w-6 text-right text-gray-400">{s.index}</span>
                         <input
                             type="text"
                             value={s.value}
@@ -71,13 +70,13 @@ const SeriesInput = ({ series, addNewRow, updateValue, deleteRow, handleBulkPast
                                     updateValue(s.index, e.target.value)
                                 }
                             }}
-                            onPaste={(e) => handlePaste(e)}
-                            className="w-full px-1 py-0.5 border border-gray-300 rounded bg-white focus:outline-none focus:ring-1 focus:ring-blue-500"
+                            onPaste={handlePaste}
+                            className="w-full px-2 py-1 border border-gray-200 rounded focus:outline-none focus:ring-1 focus:ring-blue-400 bg-gray-50"
                         />
                         <button
                             type="button"
                             onClick={() => deleteRow(s.index)}
-                            className="text-gray-400 hover:text-red-500"
+                            className="text-gray-300 hover:text-red-500 transition"
                             aria-label="Delete"
                         >
                             <i className="bi bi-x-circle-fill"></i>
@@ -85,11 +84,10 @@ const SeriesInput = ({ series, addNewRow, updateValue, deleteRow, handleBulkPast
                     </div>
                 ))}
             </div>
-
             <button
                 type="button"
                 onClick={addNewRow}
-                className="items-center text-blue-600 hover:underline px-1 py-0.5"
+                className="text-blue-700 hover:underline px-1 py-0.5 mt-2 font-medium"
             >
                 + Add Row
             </button>
