@@ -22,6 +22,7 @@ export const usePreprocessing = (series) => {
                 const nulledSeries = nullEmptyStringValues(series);
                 const response = await handleMissingValues({ ...formData, series: nulledSeries });
                 if (response.data?.series) {
+                    console.log('preprocessed', response.data.series);
                     setPreprocessedSeries(response.data.series);
                 }
             } catch (error) {

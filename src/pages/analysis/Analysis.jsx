@@ -2,8 +2,10 @@ import Header from "../../components/Header";
 import { useAnalyze } from "../../hooks/useAnalyze";
 import { usePreprocessing } from "../../hooks/usePreprocessing";
 import { useSeriesInput } from "../../hooks/useSeriesInput";
+import { coundValidValues } from "../../utils/validateSeries";
 import ForecastOption from "./ForecastOptions";
-import LineChart from "./LineChart";
+import LineGraph from "./LineChart";
+
 import PreprocessingOption from "./PreprocessingOption";
 import Result from "./Result";
 import SeriesInput from "./SeriesInput";
@@ -36,7 +38,7 @@ const Analysis = () => {
                         />
                     </div>
                     <div className="flex-1 border">
-                        <LineChart series={series} />
+                        <LineGraph series={series} />
                     </div>
                 </div>
                 {/* Series Preprocessing */}
@@ -47,7 +49,7 @@ const Analysis = () => {
                         setFormData={setFormData}
                     />
                     {/* Preprocessed series graph */}
-                    <LineChart series={preprocessedSeries} />
+                    {coundValidValues(preprocessedSeries) && <LineGraph series={preprocessedSeries} />}
                 </div>
 
                 {/* Forecast option*/}

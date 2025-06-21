@@ -4,7 +4,9 @@ export const validateSeriesValue = (value) => {
 }
 
 export const coundValidValues = (series) => {
-    const filtered = series.filter(s => s.value != "");
+    if (!series) return false;
+
+    const filtered = series.filter(s => s.value != null);
     if (filtered.length > 0) {
         return true;
     }
