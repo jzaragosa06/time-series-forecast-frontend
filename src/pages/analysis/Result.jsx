@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { LineChart } from "recharts";
 import LineGraph from "./LineChart";
+import AiComponent from "./Ai";
 
 const Result = ({
     metric,
@@ -24,7 +25,11 @@ const Result = ({
             <div>
                 <p>forecast</p>
                 {outSampleForecast && <LineGraph series={outSampleForecast} />}
+
+                {/* AI Explanation */}
+                <AiComponent />
             </div>
+
         </div>
     )
 }

@@ -3,6 +3,7 @@ import { useAnalyze } from "../../hooks/useAnalyze";
 import { usePreprocessing } from "../../hooks/usePreprocessing";
 import { useSeriesInput } from "../../hooks/useSeriesInput";
 import { coundValidValues } from "../../utils/validateSeries";
+import Ai from "./Ai";
 import ForecastOption from "./ForecastOptions";
 import LineGraph from "./LineChart";
 
@@ -73,7 +74,7 @@ const Analysis = () => {
                     />
                 </div>
 
-                {/* AI Explanation */}
+    
 
             </div>
         </>
