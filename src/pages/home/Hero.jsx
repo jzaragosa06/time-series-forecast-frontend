@@ -1,9 +1,10 @@
 import { useNavigate } from "react-router-dom";
+import HeroImg from '../../assets/hero-section-img.svg?react';
 
 const Hero = () => {
     const navigate = useNavigate();
     return (
-        <div className="flex w-full px-6 py-2 mt-4 border justify-between">
+        <div className="flex w-full px-6 py-12 mt-4  justify-between">
             {/* Left Part */}
             <div className="max-w-2xl space-y-6">
                 <h1 className="text-4xl md:text-5xl font-extrabold text-gray-600 leading-tight">
@@ -14,20 +15,22 @@ const Hero = () => {
                     Know your data, know the future
                 </h2>
 
+
                 <span className="text-gray-500 text-sm sm:text-xs">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos error quae praesentium minima. Aspernatur dolorem et autem minus delectus nihil dolorum quia laudantium, ut id animi! Alias nulla ullam illum!
+                    Time series forecasting has never been easier. Simply add your data, and let the system do the forecasting for you.
+                    Have the AI explain the result to you!
                 </span>
 
                 <div className="flex gap-x-3 justify-center mt-4">
                     <button
                         onClick={() => navigate('/analysis')}
-                        className="px-4 py-2 rounded-lg font-semibold bg-blue-800 text-white hover:bg-blue-900"
+                        className="px-4 py-2 rounded-lg font-semibold bg-blue-800 text-white hover:bg-blue-900 hover:cursor-pointer"
                     >
                         Get Started
                     </button>
                     <button
                         onClick={() => navigate('/about')}
-                        className="px-4 py-2 rounded-lg border border-gray-400 font-semibold bg-white hover:bg-gray-100"
+                        className="px-4 py-2 rounded-lg border border-gray-400 font-semibold bg-white hover:bg-gray-100 hover:cursor-pointer"
                     >
                         Learn More
                     </button>
@@ -36,9 +39,9 @@ const Hero = () => {
 
             {/* Right Part */}
             <div className="flex flex-1 justify-center">
-                <div className="hidden md:flex w-72 h-72 bg-gray-200 rounded-xl shadow-inner items-center justify-center text-gray-500">
-                    {/* Replace with an actual image or illustration */}
-                    Image
+                <div className="hidden md:flex w-96 h-96 bg-gray-white items-center justify-center text-gray-500">
+
+                    <HeroImg />
                 </div>
             </div>
         </div>
