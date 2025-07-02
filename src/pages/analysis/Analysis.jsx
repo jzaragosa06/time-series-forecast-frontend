@@ -2,8 +2,6 @@ import Header from "../../components/Header";
 import { useAnalyze } from "../../hooks/useAnalyze";
 import { usePreprocessing } from "../../hooks/usePreprocessing";
 import { useSeriesInput } from "../../hooks/useSeriesInput";
-import { coundValidValues } from "../../utils/validateSeries";
-import Ai from "./Ai";
 import ForecastOption from "./ForecastOptions";
 import LineGraph from "./LineChart";
 import Preprocessing from "./Preprocessing";
@@ -14,13 +12,12 @@ const Analysis = () => {
     const { series, addNewRow, updateValue, deleteRow, handleBulkPaste } = useSeriesInput();
     const { preprocessedSeries, formData, setFormData } = usePreprocessing(series);
     const {
-        metric,
-        setMetric,
-        inSampleForecastTest,
-        setInSampleForecastTest,
-        outSampleForecast,
-        setOutSampleForecast,
-        forecast } = useAnalyze(formData, preprocessedSeries);
+        metric, setMetric,
+        inSampleForecastTest, setInSampleForecastTest,
+        outSampleForecast, setOutSampleForecast,
+        forecast,
+        forecastExplanation
+    } = useAnalyze(formData, preprocessedSeries);
 
     return (
         <>
@@ -73,12 +70,14 @@ const Analysis = () => {
                     <div className="mt-8 px-6">
                         <div className="bg-white rounded-xl shadow border p-4">
                             <Result
+                                series={series}
                                 metric={metric}
                                 setMetric={setMetric}
                                 inSampleForecastTest={inSampleForecastTest}
                                 setInSampleForecastTest={setInSampleForecastTest}
                                 outSampleForecast={outSampleForecast}
                                 setOutSampleForecast={setOutSampleForecast}
+                                forecastExplanation={forecastExplanation}
                             />
                         </div>
                     </div>
