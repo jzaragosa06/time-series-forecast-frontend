@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Header from "../../components/Header";
 import { useAnalyze } from "../../hooks/useAnalyze";
 import { usePreprocessing } from "../../hooks/usePreprocessing";
@@ -7,6 +8,7 @@ import LineGraph from "./LineChart";
 import Preprocessing from "./Preprocessing";
 import Result from "./Result";
 import SeriesInput from "./SeriesInput";
+import { Switch } from '@headlessui/react'
 
 const Analysis = () => {
     const { series, addNewRow, updateValue, deleteRow, handleBulkPaste } = useSeriesInput();
@@ -18,6 +20,14 @@ const Analysis = () => {
         forecast,
         forecastExplanation
     } = useAnalyze(formData, preprocessedSeries);
+    const [processesingEnabled, setProcessingEnabled] = useState(false);
+
+    const handleEnableProcessing = () => {
+        if (!processesingEnabled) setProcessingEnabled(!processesingEnabled);
+        //means true. We also need to update the option for formData
+        setProcessingEnabled(!processesingEnabled);
+        setFormData({ ...formData, method: 'none', value: 0 })
+    }
 
     return (
         <>
@@ -43,16 +53,36 @@ const Analysis = () => {
                     </div>
                 </div>
 
-                {/* Series Preprocessing */}
-                <div className="mt-8 px-6">
-                    <div className="bg-white rounded-xl shadow border p-4">
-                        <Preprocessing
-                            formData={formData}
-                            setFormData={setFormData}
-                            preprocessedSeries={preprocessedSeries}
+
+
+                {/* Toggle Preprocessing */}
+                <div className="mt-8 px-6 flex justify-end items-center gap-2">
+                    <span className="text-sm text-gray-600">Enable Preprocessing</span>
+                    <button
+                        onClick={handleEnableProcessing}
+                        className={`relative inline-flex h-5 w-10 items-center rounded-full transition-colors duration-200 ${processesingEnabled ? "bg-blue-500" : "bg-gray-300"
+                            }`}
+                    >
+                        <span
+                            className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform duration-200 ${processesingEnabled ? "translate-x-5" : "translate-x-1"
+                                }`}
                         />
-                    </div>
+                    </button>
                 </div>
+
+
+                {/* Series Preprocessing */}
+                {processesingEnabled && 
+                    <div className="mt-8 px-6">
+                        <div className="bg-white rounded-xl shadow border p-4">
+                            <Preprocessing
+                                formData={formData}
+                                setFormData={setFormData}
+                                preprocessedSeries={preprocessedSeries}
+                            />
+                        </div>
+                    </div>
+                }
 
                 {/* Forecast option*/}
                 <div className="mt-8 px-6">

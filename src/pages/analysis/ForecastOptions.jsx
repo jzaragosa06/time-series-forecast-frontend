@@ -44,10 +44,11 @@ const ForecastOption = ({ formData, setFormData, forecast }) => {
                     ))}
                 </select>
             </div>
+
             <button
                 type="button"
                 onClick={handleForecastClick}
-                className="px-6 py-2 bg-blue-800 hover:bg-blue-900 transition text-white rounded-lg font-semibold shadow"
+                className={`px-6 py-2 bg-blue-800 hover:bg-blue-900 transition text-white rounded-lg font-semibold shadow ${isLoading ? "cursor-not-allowed bg-blue-500" : "bg-blue-800 hover:bg-blue-900"}`}
                 disabled={isLoading}
             >
                 {isLoading ? "Loading..." : "Forecast"}

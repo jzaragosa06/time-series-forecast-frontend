@@ -37,7 +37,9 @@ export const useAnalyze = (formData, preprocessedSeries) => {
 
         }
 
-        explainForecast();
+        if (outSampleForecast && outSampleForecast.length > 0) {
+            explainForecast();
+        } 
     }, [outSampleForecast]);
 
     return {
