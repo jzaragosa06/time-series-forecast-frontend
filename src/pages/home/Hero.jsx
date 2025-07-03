@@ -6,7 +6,7 @@ const Hero = () => {
     return (
         <div className="flex w-full px-6 py-12 mt-4  justify-between">
             {/* Left Part */}
-            <div className="max-w-2xl space-y-6">
+            <div className="max-w-2xl space-y-3">
                 <h1 className="text-4xl md:text-5xl font-extrabold text-gray-600 leading-tight">
                     Forecast Time Series <span className="text-blue-800">with Ease</span>
                 </h1>
@@ -16,7 +16,7 @@ const Hero = () => {
                 </h2>
 
 
-                <span className="text-gray-500 text-sm sm:text-xs">
+                <span className="text-gray-500 text-sm">
                     Time series forecasting has never been easier. Simply add your data, and let the system do the forecasting for you.
                     Have the AI explain the result to you!
                 </span>
