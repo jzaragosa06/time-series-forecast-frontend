@@ -35,7 +35,7 @@ const Analysis = () => {
             <div className="flex flex-col min-h-screen">
                 {/* Series Input & Chart */}
                 <div className="flex flex-col md:flex-row gap-8 mt-8 px-6">
-                    <div className="md:w-1/3 w-full bg-white rounded-xl shadow border p-4">
+                    <div className="md:w-1/3 w-full rounded-xl shadow-xl border border-gray-100 p-4">
                         <h2 className="text-lg font-semibold mb-4 text-gray-800">Series Input</h2>
                         <SeriesInput
                             series={series}
@@ -45,7 +45,7 @@ const Analysis = () => {
                             handleBulkPaste={handleBulkPaste}
                         />
                     </div>
-                    <div className="flex-1 bg-white rounded-xl shadow border p-4 flex flex-col">
+                    <div className="flex-1 bg-white rounded-xl shadow-xl border border-gray-100 p-4 flex flex-col">
                         <h2 className="text-lg font-semibold mb-4 text-gray-800">Series Chart</h2>
                         <div className="flex-1">
                             <LineGraph series={series} />
@@ -72,9 +72,9 @@ const Analysis = () => {
 
 
                 {/* Series Preprocessing */}
-                {processesingEnabled && 
+                {processesingEnabled &&
                     <div className="mt-8 px-6">
-                        <div className="bg-white rounded-xl shadow border p-4">
+                        <div className="bg-gray-50 rounded-xl shadow-xl p-4">
                             <Preprocessing
                                 formData={formData}
                                 setFormData={setFormData}
@@ -86,7 +86,7 @@ const Analysis = () => {
 
                 {/* Forecast option*/}
                 <div className="mt-8 px-6">
-                    <div className="bg-white rounded-xl shadow border p-4 flex flex-col md:flex-row md:items-center gap-4">
+                    <div className="bg-gray-50 rounded-xl shadow-xl border border-gray-100 p-4 flex flex-col md:flex-row md:items-center gap-4">
                         <ForecastOption
                             formData={formData}
                             setFormData={setFormData}
