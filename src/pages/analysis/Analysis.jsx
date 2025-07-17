@@ -32,7 +32,7 @@ const Analysis = () => {
     return (
         <>
             <Header />
-            <div className="flex flex-col min-h-screen bg-gray-50">
+            <div className="flex flex-col min-h-screen">
                 {/* Series Input & Chart */}
                 <div className="flex flex-col md:flex-row gap-8 mt-8 px-6">
                     <div className="md:w-1/3 w-full bg-white rounded-xl shadow border p-4">
