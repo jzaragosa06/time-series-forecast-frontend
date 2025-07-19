@@ -28,7 +28,7 @@ export const useAnalyze = (formData, preprocessedSeries) => {
                 const response = await explainForecastWithAI({
                     prompt: 'financial stock data of a company',
                     series: outSampleForecast,
-                }); 
+                });
 
                 setForecastExplanation(response.data.explanation);
             } catch (error) {
@@ -39,7 +39,7 @@ export const useAnalyze = (formData, preprocessedSeries) => {
 
         if (outSampleForecast && outSampleForecast.length > 0) {
             explainForecast();
-        } 
+        }
     }, [outSampleForecast]);
 
     return {

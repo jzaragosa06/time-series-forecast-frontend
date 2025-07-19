@@ -40,7 +40,7 @@ export const usePreprocessing = (series) => {
         // if (formData.method !== 'none') {
         //     seriesPreprocessing();
         // }
-        seriesPreprocessing(); 
+        seriesPreprocessing();
     }, [formData.method, formData.value, debouncedSeries]);
 
     return {

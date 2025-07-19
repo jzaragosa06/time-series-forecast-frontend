@@ -1,18 +1,21 @@
 import LineGraph from "./LineChart";
 import AiComponent from "./Ai";
 import LinesGraph from "./LinesChart";
+import { useAnalysis } from "../../context/UseAnalyzeContext";
 
-const Result = ({
-    series, 
-    metric,
-    setMetric,
-    inSampleForecastTest,
-    setInSampleForecastTest,
-    outSampleForecast,
-    setOutSampleForecast,
-    seriesExplanation,
-    forecastExplanation
-}) => {
+const Result = () => {
+    const {
+        series,
+        metric,
+        setMetric,
+        inSampleForecastTest,
+        setInSampleForecastTest,
+        outSampleForecast,
+        setOutSampleForecast,
+        seriesExplanation,
+        forecastExplanation
+    } = useAnalysis();
+
     const testLength = inSampleForecastTest.length;
     const testSeries = series.slice(-testLength);
 

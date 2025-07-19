@@ -42,24 +42,6 @@ export const useSeriesInput = () => {
         }
     }
 
-
-    // const handleBulkPaste = (csvString) => {
-    //     const values = csvString.split(',')
-    //         .map(v => v.trim())
-    //         .filter(v => v !== '');
-
-    //     if (values.length > 0) {
-    //         setSeries(prev => [
-    //             ...prev,
-    //             ...values.map((value, idx) => ({
-    //                 index: prev.length + idx + 1,
-    //                 value
-    //             })),
-    //         ])
-    //     }
-    // }
-
-
     const checkSeries = async () => {
         const response = await checkSeriesForMissingValues({ series });
         console.log('checked series', response);

@@ -1,11 +1,13 @@
 import { useState } from "react";
+import { useAnalysis } from "../../context/UseAnalyzeContext";
 
 const forecastMethod = [
     { index: "without_refit", value: "Without Refit" },
     { index: "with_refit", value: "With Refit" },
 ]
 
-const ForecastOption = ({ formData, setFormData, forecast }) => {
+const ForecastOption = () => {
+    const { formData, setFormData, forecast } = useAnalysis();
     const [isLoading, setIsLoading] = useState(false);
 
     const handleForecastClick = async () => {

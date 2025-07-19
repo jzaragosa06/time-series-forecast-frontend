@@ -1,6 +1,9 @@
+import { useAnalysis } from "../../context/UseAnalyzeContext";
 import { validateSeriesValue } from "../../utils/validateSeries";
 
-const SeriesInput = ({ series, addNewRow, updateValue, deleteRow, handleBulkPaste }) => {
+const SeriesInput = () => {
+    const { series, addNewRow, updateValue, deleteRow, handleBulkPaste } = useAnalysis();
+
     const handlePaste = (e) => {
         e.preventDefault();
         handleBulkPaste(e.clipboardData.getData('text'))

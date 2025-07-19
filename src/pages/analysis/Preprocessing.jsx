@@ -1,3 +1,4 @@
+import { useAnalysis } from "../../context/UseAnalyzeContext";
 import { coundValidValues } from "../../utils/validateSeries";
 import LineGraph from "./LineChart";
 
@@ -12,7 +13,8 @@ const methods = [
     { key: "dropna", value: "Drop missing values" }
 ]
 
-const Preprocessing = ({ formData, setFormData, preprocessedSeries }) => {
+const Preprocessing = () => {
+    const { formData, setFormData, preprocessedSeries } = useAnalysis();
     return (
         <>
             <h3 className="text-lg font-semibold mb-4 text-gray-800">Preprocessing Options</h3>
