@@ -56,7 +56,7 @@ const Analysis = () => {
                 {/* Series Preprocessing */}
                 {processingEnabled &&
                     <div className="mt-8 px-6">
-                        <div className="bg-gray-50 rounded-xl shadow-xl p-4">
+                        <div className="bg-white rounded-xl shadow-2xl p-4">
                             <Preprocessing />
                         </div>
                     </div>
@@ -64,7 +64,7 @@ const Analysis = () => {
 
                 {/* Forecast option*/}
                 <div className="mt-8 px-6">
-                    <div className="bg-gray-50 rounded-xl shadow-xl border border-gray-100 p-4 flex flex-col md:flex-row md:items-center gap-4">
+                    <div className="bg-gray-50 rounded-xl shadow-2xl border border-gray-100 p-4 flex flex-col md:flex-row md:items-center gap-4">
                         <ForecastOption />
                     </div>
                 </div>
@@ -72,7 +72,7 @@ const Analysis = () => {
                 {/* Forecast result */}
                 {metric && (
                     <div className="mt-8 px-6">
-                        <div className="bg-white rounded-xl shadow border p-4">
+                        <div className="bg-white rounded-xl shadow-2xl p-4">
                             <Result />
                         </div>
                     </div>

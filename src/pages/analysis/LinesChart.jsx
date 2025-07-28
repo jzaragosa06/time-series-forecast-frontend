@@ -23,7 +23,7 @@ const LinesGraph = ({ series1, series2 }) => {
     series1.forEach(s => {
         dataMap[s.index] = {
             name: s.index,
-            series1: s.value === "" || s.value === null ? null : Number(s.value),
+            series1: s.value === "" || s.value === null ? null : Number(s.value).toFixed(4),
         };
     });
 
@@ -32,7 +32,7 @@ const LinesGraph = ({ series1, series2 }) => {
             if (!dataMap[s.index]) {
                 dataMap[s.index] = { name: s.index };
             }
-            dataMap[s.index].series2 = s.value === "" || s.value === null ? null : Number(s.value);
+            dataMap[s.index].series2 = s.value === "" || s.value === null ? null : Number(s.value).toFixed(4);
         });
     }
 

@@ -17,7 +17,7 @@ const LineGraph = ({ series }) => {
 
     const formattedData = series.map(s => ({
         name: s.index,
-        value: s.value === "" || s.value === null ? null : Number(s.value),
+        value: s.value === "" || s.value === null ? null : Number(s.value).toFixed(4),
     }));
 
     // Get min/max for Y-axis

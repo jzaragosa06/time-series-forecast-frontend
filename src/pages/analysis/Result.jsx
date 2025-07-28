@@ -34,9 +34,10 @@ const Result = () => {
 
             }
 
-            <div className="flex flex-col md:flex-row gap-6">
+            <div className=" md:flex-row gap-6">
                 <div className="flex-1">
                     <p className="text-gray-700 font-medium mb-2">Forecast</p>
+                    <span className="text-xs text-gray-600">This visualize and describes the forcasted values for the given time series</span>
                     {outSampleForecast && <LineGraph series={outSampleForecast} />}
                 </div>
                 {/* AI Explanation */}

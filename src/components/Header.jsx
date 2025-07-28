@@ -7,7 +7,9 @@ const Header = () => {
                 <img src="/ts-logo.png" alt="Logo" className="w-10 h-10" />
                 <h1 className="text-xl font-extrabold text-gray-600">DataForesight</h1>
             </div>
-            <Nav />
+            <div className="hidden md:block">
+                <Nav />
+            </div>
         </header>
     );
 };
