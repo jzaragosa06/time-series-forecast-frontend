@@ -23,7 +23,7 @@ const Hero = () => {
 
                 <div className="flex gap-x-3 justify-center mt-4">
                     <button
-                        onClick={() => navigate('/analysis?get_started=true')}
+                        onClick={() => navigate('/analysis')}
                         className="px-4 py-2 rounded-lg font-semibold bg-blue-800 text-white hover:bg-blue-900 hover:cursor-pointer"
                     >
                         Get Started
@@ -44,7 +44,7 @@ const Hero = () => {
                     <HeroImg />
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
 

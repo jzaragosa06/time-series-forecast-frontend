@@ -20,14 +20,13 @@ const Analysis = () => {
         setFormData({ ...formData, method: 'none', value: 0 })
     }
     const [showModal, setShowModal] = useState(false);
-    const [searchParams] = useSearchParams();
+
 
     useEffect(() => {
-        if (searchParams.get("get_started") === "true") {
+        if (localStorage.getItem('getting_started') != "true") {
             setShowModal(true);
         }
-    }, [searchParams])
-
+    }, [])
 
     return (
         <>
@@ -118,7 +117,10 @@ const Analysis = () => {
                         <div className="mt-6 flex justify-end">
                             <button
                                 className="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition"
-                                onClick={() => setShowModal(false)}
+                                onClick={() => {
+                                    localStorage.setItem("getting_started", "true");
+                                    setShowModal(false);
+                                }}
                             >
                                 Got it
                             </button>
