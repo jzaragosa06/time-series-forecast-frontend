@@ -10,6 +10,8 @@ export const usePreprocessing = (series) => {
         frequency: 'D',
         steps: 10,
         forecast_method: 'without_refit',
+        description: '',
+        prompt: '',
     });
 
     const [debouncedSeries, setDebouncedSeries] = useState(series);

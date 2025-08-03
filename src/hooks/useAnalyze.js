@@ -7,9 +7,28 @@ export const useAnalyze = (formData, preprocessedSeries) => {
     const [inSampleForecastTest, setInSampleForecastTest] = useState([]);
     const [outSampleForecast, setOutSampleForecast] = useState([]);
     const [forecastExplanation, setForecastExplanation] = useState();
+    const [isValid, setIsValid] = useState(true);
+    const [errorMessage, setErrorMessage] = useState();
 
+    const checkSeries = () => {
+        if (preprocessedSeries.length <= 100) {
+            setIsValid(false);
+            setErrorMessage("The series must contain more than 100 entries.");
+            return false;
+        }
+
+        const allFilled = preprocessedSeries.every(item => item.value !== null);
+        if (!allFilled) {
+            setIsValid(false);
+            setErrorMessage("All series values must be filled.");
+            return false;
+        }
+
+        return true;
+    };
     const forecast = async () => {
         try {
+            if (checkSeries() == false) return;
             const response = await forecastTimeSeries({ ...formData, series: preprocessedSeries });
             setMetric(response.data.metric);
             setInSampleForecastTest(response.data.in_sample_forecast_test);
@@ -26,7 +45,8 @@ export const useAnalyze = (formData, preprocessedSeries) => {
         const explainForecast = async () => {
             try {
                 const response = await explainForecastWithAI({
-                    prompt: 'financial stock data of a company',
+                    prompt: formData.prompt,
+                    description: formData.description,
                     series: outSampleForecast,
                 });
 
@@ -47,6 +67,8 @@ export const useAnalyze = (formData, preprocessedSeries) => {
         inSampleForecastTest, setInSampleForecastTest,
         outSampleForecast, setOutSampleForecast,
         forecast,
-        forecastExplanation, setForecastExplanation
+        forecastExplanation, setForecastExplanation,
+        isValid, setIsValid,
+        errorMessage, setErrorMessage
     }
 }
