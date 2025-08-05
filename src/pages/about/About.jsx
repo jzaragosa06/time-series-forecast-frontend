@@ -1,6 +1,7 @@
 import Header from "../../components/Header";
 import StackingModelImg from "../../assets/alg1.png";
 import Phases from "../../assets/alg2.png";
+import Contributor from "./Contributors";
 
 const About = () => {
     return (
@@ -39,15 +40,10 @@ const About = () => {
                         <p>
                             This study was conducted and developed by the students from Pangasinan State University - Urdaneta City Campus:
                         </p>
-                        <ul className="list-disc list-inside space-y-1">
-                            <li>Paulet Crysline Pajo – <strong>Project Lead</strong></li>
-                            <li><a className="text-blue-600 font-semibold" href="https://www.linkedin.com/in/jun-jun-zaragosa/" target="_blank">Jun Jun M. Zaragosa</a> – <strong>Lead Programmer</strong></li>
-                            <li>Leynard Guinumtad</li>
-                            <li>Janeil Capales</li>
-                            <li>Camile Marticio</li>
-                            <li>Jann Daerick Finulliar</li>
-                        </ul>
+                        <Contributor />
+
                     </div>
+
 
                     {/* Right Column */}
                     <div className="space-y-8">
