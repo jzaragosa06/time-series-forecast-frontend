@@ -1,15 +1,37 @@
+# Frontend for Automated Time Series Forecasting
+
+This repository contains the **simplified frontend** for my capstone project:  
+**_“Automated Time Series Forecasting: Using Hybrid Forecasting Approach.”_**
+
+ <p>
+    Refer to this link for the <a href="https://drive.google.com/file/d/1ezv9vKa8NNZ1Isd4c1vs9Tl0QWcCdldI/view?usp=sharing"> research's extended abstract. </a> You can read the <a href="https://www.linkedin.com/in/jun-jun-zaragosa/details/projects/"> full document </a> and explore my other projects.
+</p>
+
+Originally, the full system was implemented using **PHP’s Laravel framework** (serving Blade templates) alongside a dedicated **Python Flask application** for the core forecasting logic.  
+
+For this simplified version, I’ve rewritten the backend with a clean separation between backend and frontend:  
+- **Frontend:** React.js  
+- **Backend:** Python Flask (lightweight and fast for development)
 
 
-//8,4,2,1,0,8,6,3,1,7,3,4,5,6,1,2,5,6,7,9,8,4,2,1,0,8,6,3,1,7,3,4,5,6,1,2,5,6,7,9
+---
 
-100.2,101.5,100.9,102.3,101.8,103.1,102.6,103.5,102.9,104.2,103.7,105.1,104.4,105.6,104.9,
-106.2,105.7,107.1,106.3,107.8,107.0,108.4,107.6,109.1,108.2,109.7,108.9,110.3,109.5,111.0,
-110.1,111.6,110.8,112.2,111.3,112.9,111.9,113.5,112.4,114.0,113.1,114.6,113.6,115.3,114.2,
-115.9,114.7,116.4,115.3,117.0,115.9,117.7,116.4,118.3,117.0,118.8,117.6,119.4,118.2,120.0,
-118.7,120.6,119.3,121.1,119.9,121.7,120.4,122.2,121.0,122.8,121.6,123.4,122.1,124.0,122.7,
-124.6,123.2,125.1,123.8,125.7,124.4,126.2,124.9,126.8,125.5,127.3,126.0,127.9,126.6,128.4,
-127.1,129.0,127.7,129.5,128.3,130.1,128.8,130.6,129.4,131.2,130.0,131.7,130.5,132.3,131.1,
-132.8,131.6,133.4,132.2,133.9,132.8,134.5,133.3,135.0,133.9,135.6,134.4,136.1,135.0,136.7,
-135.5,137.2,136.1,137.8,136.7,138.3,137.2,138.9,137.8,139.4,138.3,140.0,138.9,140.5,139.4,
-141.1,140.0,141.6,140.6,142.2,141.1,142.7,141.7,143.3,142.2,143.8,142.8,144.4,143.3,144.9,
-143.9,145.5,144.4,146.0,145.0,146.6,145.5,147.1
+## Core Functionality
+This React web application allows the user to interact with the hybrid time series forecasting model that was developed during the research. Specifically, it has the following:
+- Input time series data
+- Preprocess the data
+- Allow modification on forecast options
+- Forecast time series base on specified steps
+- Provide AI explanation on the results. 
+
+---
+
+## Researchers Behind the Original Study
+- **Paulet Crysline Pajo** – Project Leader  
+- **Jun Jun M. Zaragosa** – Lead Programmer  
+- Leynard Guinumtad  
+- Janeil Capales  
+- Camile Marticio  
+- Jann Daerick Finulliar  
+
+---
